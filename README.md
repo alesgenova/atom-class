@@ -1,37 +1,46 @@
 # Atom
 
+![Class Diagram](class_diagram.svg)
+
 
 ```plantuml
+
 @startuml
 
 Interface Atom{
     + getLabel()
     + getColor()
     + getRadius()
+    + getAtomicNumber()
 }
 
 Class OxygenAtom{
     + getLabel()
     + getColor()
     + getRadius()
+    + getAtomicNumber()
     - static defaultLabel
     - static defaultColor
     - static defaultRadius
+    - static atomicNumber
 }
 
 Class HydrogenAtom{
     + getLabel()
     + getColor()
     + getRadius()
+    + getAtomicNumber()
     - static defaultLabel
     - static defaultColor
     - static defaultRadius
+    - static atomicNumber
 }
 
 Abstract PropertyDecorator{
     + getLabel()
     + getColor()
     + getRadius()
+    + getAtomicNumber()
     - wrappedAtom
 }
 
@@ -56,9 +65,9 @@ Atom <|.. HydrogenAtom
 
 Atom <|.. PropertyDecorator
 
-PropertyDecorator <|.. LabelDecorator
-PropertyDecorator <|.. ColorDecorator
-PropertyDecorator <|.. RadiusDecorator
+PropertyDecorator <|-- LabelDecorator
+PropertyDecorator <|-- ColorDecorator
+PropertyDecorator <|-- RadiusDecorator
 
 @enduml
 ```
