@@ -5,6 +5,8 @@ add_library (
     Atom.cpp
     Property.hpp
     Property.cpp
+    Factory.hpp
+    Factory.cpp
 )
 
 add_executable (

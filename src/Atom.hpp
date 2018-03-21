@@ -6,9 +6,17 @@
 class Atom {
   public:
     virtual std::string getLabel() const = 0;
+    virtual void setLabel(std::string);
     virtual std::string getColor() const = 0;
+    virtual void setColor(std::string);
     virtual double getRadius() const = 0;
+    virtual void setRadius(double);
     virtual int getAtomicNumber() const = 0;
+    virtual bool _hasSetLabel(std::string);
+    virtual bool _hasSetColor(std::string);
+    virtual bool _hasSetRadius(double);
+  protected:
+
 };
 
 
@@ -42,13 +50,16 @@ class WastefulOxygenAtom : public Atom {
   public:
     WastefulOxygenAtom();
     virtual std::string getLabel() const;
+    virtual void setLabel(std::string);
     virtual std::string getColor() const;
+    virtual void setColor(std::string);
     virtual double getRadius() const;
+    virtual void setRadius(double);
     virtual int getAtomicNumber() const;
   private:
-    const std::string defaultLabel;
-    const std::string defaultColor;
-    const double defaultRadius;
+    std::string label;
+    std::string color;
+    double radius;
     const int atomicNumber;
 };
 

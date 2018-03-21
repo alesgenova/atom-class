@@ -3,6 +3,7 @@
 
 #include "Atom.hpp"
 #include "Property.hpp"
+#include "Factory.hpp"
 
 
 int main(){
@@ -14,20 +15,21 @@ int main(){
   std::vector<Atom*> atoms;
   Atom* tmp;
 
+  AtomFactory factory;
+
   for (int i=0; i<n; ++i){
     if (true){
       if (i%2==0){
-        atoms.push_back(new OxygenAtom());
+        tmp = factory.makeAtom("O");
       }else{
-        atoms.push_back(new HydrogenAtom());
+        tmp = factory.makeAtom("H");
       }
       if (i%m==0){
-        tmp = atoms[i];
-        tmp = new LabelDecorator(tmp, tmp->getLabel()+"x");
-        tmp = new ColorDecorator(tmp, "#00ff00");
-        tmp = new RadiusDecorator(tmp, tmp->getRadius()+0.05);
-        atoms[i] = tmp;
+        tmp->setLabel(tmp->getLabel()+"x");
+        tmp->setColor("#00ff00");
+        tmp->setRadius(tmp->getRadius()+0.05);
       }
+      atoms.push_back(tmp);
     }else{
       atoms.push_back(new WastefulOxygenAtom());
     }

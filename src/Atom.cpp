@@ -3,6 +3,31 @@
 #include "Atom.hpp"
 
 
+void Atom::setLabel(std::string _label){
+  return;
+}
+
+void Atom::setColor(std::string _color){
+  return;
+}
+
+void Atom::setRadius(double _radius){
+  return;
+}
+
+bool Atom::_hasSetLabel(std::string label_){
+  return false;
+}
+
+bool Atom::_hasSetColor(std::string color_){
+  return false;
+}
+
+bool Atom::_hasSetRadius(double radius_){
+  return false;
+}
+
+
 const std::string OxygenAtom::defaultLabel = "O";
 const std::string OxygenAtom::defaultColor = "#ff0000";
 const double OxygenAtom::defaultRadius = 0.75;
@@ -48,22 +73,34 @@ int HydrogenAtom::getAtomicNumber() const{
 
 
 WastefulOxygenAtom::WastefulOxygenAtom()
-  : defaultLabel("O")
-  , defaultColor("#ff0000")
-  , defaultRadius(0.75)
+  : label("O")
+  , color("#ff0000")
+  , radius(0.75)
   , atomicNumber(8)
 {}
 
 std::string WastefulOxygenAtom::getLabel() const{
-  return defaultLabel;
+  return label;
+}
+
+void WastefulOxygenAtom::setLabel(std::string _label){
+  label = _label;
 }
 
 std::string WastefulOxygenAtom::getColor() const{
-  return defaultColor;
+  return color;
+}
+
+void WastefulOxygenAtom::setColor(std::string _color){
+  color = _color;
 }
 
 double WastefulOxygenAtom::getRadius() const{
-  return defaultRadius;
+  return radius;
+}
+
+void WastefulOxygenAtom::setRadius(double _radius){
+  radius = _radius;
 }
 
 int WastefulOxygenAtom::getAtomicNumber() const{
